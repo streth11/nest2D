@@ -12,10 +12,8 @@ namespace py = pybind11;
 using Point = libnest2d::Point;
 using Coord = libnest2d::Coord;
 using Box = libnest2d::Box;
-
 using Item = libnest2d::Item;
 using PackGroup = libnest2d::PackGroup;
-
 using SVGWriter = libnest2d::svg::SVGWriter<libnest2d::PolygonImpl>;
 
 PYBIND11_MODULE(nest2D, m)
@@ -105,8 +103,8 @@ PYBIND11_MODULE(nest2D, m)
             conf.mm_in_coord_units = libnest2d::mm();
             return std::unique_ptr<SVGWriter>(new SVGWriter(conf));
         }))
-        .def("write_packgroup", [](SVGWriter & sw, const PackGroup & pgrp) {
-            sw.setSize(Box(libnest2d::mm(250), libnest2d::mm(210)));  // TODO make own call
+        .def("write_packgroup", [](SVGWriter & sw, const PackGroup & pgrp, int width, int height) {
+            sw.setSize(Box(width, height));
             sw.writePackGroup(pgrp);
         })
         .def("save", [](SVGWriter & sw) {

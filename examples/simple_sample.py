@@ -1,4 +1,4 @@
-from nest2D import *
+from nest2D import Point, Box, Item, nest, SVGWriter
 
 
 def add_shape1(n, items):
@@ -39,20 +39,19 @@ def main():
     add_shape1(23, input)
     add_shape2(15, input)
     dist = 5000000
-
+    
     pgrp = nest(input, box)
 
     sw = SVGWriter()
-    sw.write_packgroup(pgrp)
+    sw.write_packgroup(pgrp,150000000,150000000)
     sw.save()
 
     # now with shape spacing
     pgrp = nest(input, box, dist)
 
     sw = SVGWriter()
-    sw.write_packgroup(pgrp)
+    sw.write_packgroup(pgrp,1500000000,150000000)
     sw.save()
-
 
 if __name__ == '__main__':
     main()

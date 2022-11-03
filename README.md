@@ -7,6 +7,16 @@ Nest2D works with the C++ libnest2d backend for speed. For python C++ interopera
 The library is written in a way that it should be usable out of the box with a very simple interface. The backend is reasonably fast and robust, being built on top of boost geometry and the 
 [polyclipping](http://www.angusj.com/delphi/clipper.php) library.
 
+# Install for ubuntu
+
+- need a cpp compiler
+- install cmake `pip install cmake`
+- install cpp libraries `sudo apt install libboost-dev libpolyclipping-dev libnlopt-cxx-dev`
+- clone repo
+- load submodules `git submodule update --init --recursive`
+- compile and load `pip install -e .`
+- run example `python examples/simple_sample.py`
+
 
 # Example
 
